@@ -16,9 +16,7 @@ public class Transactions
     public int Userid { get; set; }
 
     public int Serviceid { get; set; }
-
     //objetos
-
     public Users ObjUser { get; set; }
     public Services Objservice { get; set; }
 }
