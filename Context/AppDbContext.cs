@@ -29,6 +29,35 @@ namespace MoneyFlow.Context
                     );
                 
             });
+
+            modelBuilder.Entity<Services>(s =>
+            {
+                s.HasKey("ServiceID");
+                s.Property("ServiceID").ValueGeneratedOnAdd();
+
+                s.HasOne( u => u.ObjUser).WithMany(u => u.IServices).HasForeignKey(u => u.Userid)
+                .OnDelete(DeleteBehavior.Cascade);//revisar luego se puede cambiar por restirngido
+
+            });
+
+            modelBuilder.Entity<Transactions>(s => {
+
+                s.HasKey("TransactionID");
+                s.Property("TransactionID").ValueGeneratedOnAdd();
+
+                //referencias a las llaves foreaneas
+
+                //Service
+
+                s.HasOne( s => s.Objservice).WithMany().HasForeignKey( s => s.Serviceid)
+                .OnDelete(DeleteBehavior.Cascade);
+
+                //usuario
+                s.HasOne( u => u.ObjUser).WithMany(u => u.ITransactions).HasForeignKey(u => u.Userid)
+                .OnDelete(DeleteBehavior.Cascade);
+            
+            
+            });
         }
 
 
