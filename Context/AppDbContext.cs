@@ -44,6 +44,9 @@ namespace MoneyFlow.Context
 
                 s.HasKey("TransactionID");
                 s.Property("TransactionID").ValueGeneratedOnAdd();
+                //correcion para evitar la alerta al crear la migracion
+                s.Property("Date").HasColumnType("date");
+                s.Property("TotalAmount").HasColumnType("decimal(10,2)");
 
                 //referencias a las llaves foreaneas
 
