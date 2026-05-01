@@ -25,7 +25,7 @@ namespace MoneyFlow.Context
 
                 e.HasData(
                   
-                    new Users() { UserID = 1, UserName = "Cristopher Mariñez" , Password="Cris123"}
+                    new Users() { UserID = 1, UserName = "Cristopher Mariñez" , Email = "Cris12@gmail.com", Password ="Cris123"}
                     );
                 
             });
