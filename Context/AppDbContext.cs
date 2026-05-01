@@ -36,7 +36,7 @@ namespace MoneyFlow.Context
                 s.Property("ServiceID").ValueGeneratedOnAdd();
 
                 s.HasOne( u => u.ObjUser).WithMany(u => u.IServices).HasForeignKey(u => u.Userid)
-                .OnDelete(DeleteBehavior.Cascade);//revisar luego se puede cambiar por restirngido
+                .OnDelete(DeleteBehavior.Restrict);//revisar luego se puede cambiar por restirngido
 
             });
 
@@ -53,11 +53,11 @@ namespace MoneyFlow.Context
                 //Service
 
                 s.HasOne( s => s.Objservice).WithMany().HasForeignKey( s => s.Serviceid)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
                 //usuario
                 s.HasOne( u => u.ObjUser).WithMany(u => u.ITransactions).HasForeignKey(u => u.Userid)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
             
             
             });
