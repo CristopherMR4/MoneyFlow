@@ -120,7 +120,7 @@ namespace MoneyFlow.Migrations
                     b.HasOne("MoneyFlow.Entities.Users", "ObjUser")
                         .WithMany("IServices")
                         .HasForeignKey("Userid")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("ObjUser");
@@ -131,13 +131,13 @@ namespace MoneyFlow.Migrations
                     b.HasOne("MoneyFlow.Entities.Services", "Objservice")
                         .WithMany()
                         .HasForeignKey("Serviceid")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("MoneyFlow.Entities.Users", "ObjUser")
                         .WithMany("ITransactions")
                         .HasForeignKey("Userid")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("ObjUser");
