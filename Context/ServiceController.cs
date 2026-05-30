@@ -1,14 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
 using MoneyFlow.Context;
+using MoneyFlow.Managers;
 
 namespace MoneyFlow.Context
 {
-    public class ServiceController(AppDbContext _dbContext) : Controller
+    public class ServiceController(ServiceManager _serviceManager) : Controller
     {
         public IActionResult Index()
         {
-
-            var list = _dbContext.Services.ToList();
+            //WARNING: Cambiar el User IDS
+            var list = _serviceManager.GetAll(1);
             return View(list);
         }
     }

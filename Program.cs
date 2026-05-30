@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MoneyFlow.Context;
+using MoneyFlow.Managers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ opt.UseSqlServer(builder.Configuration.GetConnectionString("cadenaSQL"))
 
 );
 
+builder.Services.AddScoped<ServiceManager>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
