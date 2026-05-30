@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MoneyFlow.Context;
 
 namespace MoneyFlow.Context
 {
-    public class ServiceController : Controller
+    public class ServiceController(AppDbContext _dbContext) : Controller
     {
         public IActionResult Index()
         {
-            return View();
+
+            var list = _dbContext.Services.ToList();
+            return View(list);
         }
     }
 }
