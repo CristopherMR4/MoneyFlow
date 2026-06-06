@@ -12,8 +12,9 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 opt.UseSqlServer(builder.Configuration.GetConnectionString("cadenaSQL"))
 
 );
-
+//ServiceController use la dependencia
 builder.Services.AddScoped<ServiceManager>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
