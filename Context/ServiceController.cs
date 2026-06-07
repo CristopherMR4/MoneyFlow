@@ -13,5 +13,14 @@ namespace MoneyFlow.Context
             var list = _serviceManager.GetAll(1);
             return View(list);
         }
+
+        //NewService
+
+        [HttpGet]
+        public IActionResult NewService()
+        {
+
+            return View();
+        }
     }
 }
