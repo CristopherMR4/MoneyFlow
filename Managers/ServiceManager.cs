@@ -23,7 +23,20 @@ namespace MoneyFlow.Managers
             return list;
 
         }
+        public int NewService(ServiceVM serviceVM) {
 
+            var entity = new Services
+            {
+                Name = serviceVM.Name,
+                Type = serviceVM.Type,
+                Userid = serviceVM.Userid
+            };
+        
+            _dbContext.Services.Add(entity);
+            var rowsAffected =  _dbContext.SaveChanges();
+
+            return rowsAffected;
+        }
 
 
 

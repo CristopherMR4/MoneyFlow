@@ -6,37 +6,40 @@
     <div class=" col-sm-6">
         <h2>Services</h2>
     </div>
-    <div class="col-sm-6  text-end"> <!--text end manda el texto al final-->
+    <div class="col-sm-6  text-end">
+        <!--text end manda el texto al final-->
         <a href="#" class="btn btn-success">New Service</a>
     </div>
 </div>
-<!---->
+<!---------------------->
 <hr />
-<!--Column of the Table-->
+
+<!--Row of the Table-->
 <div class="row">
+    <!--ROW-->
     <div class="col-sm-12">
         <!--MY TABLE-->
         <table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-        </tr>
-    </thead>
-    <tbody>
-            @foreach(var item in Model)
-            {
-             <tr>
-                 <td>@item.Name</td>
-                   <td>@item.Type</td>
-                   <td>
-                       <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                       <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                   </td>
-             </tr>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Type</td>
+                        <td>
+                            <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
 
-            }
-    </tbody>
-</table>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
