@@ -27,7 +27,10 @@ namespace MoneyFlow.Context
         [HttpPost]
         public IActionResult NewService(ServiceVM modelVM)
         {
-
+            //WARNING: Cambiar el User IDS
+            modelVM.Userid = 1;
+            var response = _serviceManager.NewService(modelVM);
+            if(response == 1)return RedirectToAction("Index"); 
             ViewBag.message = "Error";
 
             return View();
