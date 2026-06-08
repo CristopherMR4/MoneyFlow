@@ -7,6 +7,7 @@
             <div class="mb-3">
                 <label class="form-label">Name</label>
                 <input type="text" class="form-control" asp-for="Name" placeholder="Service Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Type</label>
@@ -15,6 +16,7 @@
                     <option value="income">income</option>
                     <option value="expense">expense</option>
                 </select>
+                <span asp-validation-for="Type" class="text-danger"></span>
             </div>
             <!--Danger Alert-->
             @if(ViewBag.message != null)

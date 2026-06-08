@@ -1,11 +1,14 @@
-﻿namespace MoneyFlow.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MoneyFlow.Entities;
 
 public class Services
 {
     public int ServiceID { get; set; }
 
+    [Required]
     public string Name { get; set; }
-
+    [Required]
     public string Type { get; set; }
 
     //llave foranea

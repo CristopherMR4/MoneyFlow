@@ -27,6 +27,9 @@ namespace MoneyFlow.Context
         [HttpPost]
         public IActionResult NewService(ServiceVM modelVM)
         {
+            //Requerimiento de campos
+            if(!ModelState.IsValid) return View(modelVM);
+            
             //WARNING: Cambiar el User IDS
             modelVM.Userid = 1;
             var response = _serviceManager.NewService(modelVM);
