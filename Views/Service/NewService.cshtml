@@ -3,7 +3,7 @@
 <div class="row mt-4">
     <div class="col-sm-6 offset-sm-3">
         <h2>NEW Service</h2>
-        <form>
+        <form asp-controller="Service" asp-action="NewService" method="post">
             <div class="mb-3">
                 <label class="form-label">Name</label>
                 <input type="text" class="form-control" asp-for="Name" placeholder="Service Name" />
@@ -16,12 +16,19 @@
                     <option value="expense">expense</option>
                 </select>
             </div>
+            <!--Danger Alert-->
+            @if(ViewBag.message != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewBag.message
+                </div>
+            }
+
+
             <!--BUTTONS-->
             <div class="d-grid gap-2 d-md-block">
                 <button class="btn btn-primary" type="submit">Create New</button>
                 <a asp-controller="Service" asp-action="Index" class="btn btn-warning">Back</a>
-
-
             </div>
         </form>
     </div>

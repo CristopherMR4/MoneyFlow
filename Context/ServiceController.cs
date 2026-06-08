@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MoneyFlow.Context;
 using MoneyFlow.Managers;
+using MoneyFlow.Models;
 
 namespace MoneyFlow.Context
 {
@@ -22,5 +23,15 @@ namespace MoneyFlow.Context
 
             return View();
         }
+
+        [HttpPost]
+        public IActionResult NewService(ServiceVM modelVM)
+        {
+
+            ViewBag.message = "Error";
+
+            return View();
+
+        } 
     }
 }
