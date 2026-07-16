@@ -52,5 +52,20 @@ namespace MoneyFlow.Managers
             return model;
         }
 
+        public int Edit(ServiceVM model) {
+        
+        var entity = _dbContext.Services.Find(model.ServiceID);
+        
+        entity.Name = model.Name;
+        entity.Type = model.Type;
+
+        _dbContext.Services.Update(entity);
+        var rowsAffected = _dbContext.SaveChanges();
+        return rowsAffected;
+            
+        
+        
+        }
+
     }
 }
