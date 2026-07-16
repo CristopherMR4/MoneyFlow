@@ -38,7 +38,19 @@ namespace MoneyFlow.Managers
             return rowsAffected;
         }
 
+        public ServiceVM GetById(int id)
+        {
+            var entity = _dbContext.Services.Find(id);
 
+            var model = new ServiceVM
+            {
+                ServiceID = id,
+                Name = entity.Name,
+                Type = entity.Type,
+            };
+
+            return model;
+        }
 
     }
 }
