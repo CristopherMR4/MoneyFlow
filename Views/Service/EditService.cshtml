@@ -2,12 +2,13 @@
 
 <div class="row mt-4">
     <div class="col-sm-6 offset-sm-3">
-        <h2>NEW Service</h2>
+        <h2>Service Edit</h2>
         <form asp-controller="Service" asp-action="EditService" method="post">
+            <input type ="hidden"asp-for="ServiceID"/><!--campo necesario para localizar le id-->
             <div class="mb-3">
                 <label class="form-label">Name</label>
                 <input type="text" class="form-control" asp-for="Name" placeholder="Service Name" />
-                <span asp-validation-for="Name" class="text-danger"></span> 
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Type</label>
@@ -19,7 +20,7 @@
                 <span asp-validation-for="Type" class="text-danger"></span>
             </div>
             <!--Danger Alert-->
-            @if(ViewBag.message != null)
+            @if (ViewBag.message != null)
             {
                 <div class="alert alert-danger" role="alert">
                     @ViewBag.message
@@ -29,7 +30,7 @@
 
             <!--BUTTONS-->
             <div class="d-grid gap-2 d-md-block">
-                <button class="btn btn-primary" type="submit">Create New</button>
+                <button class="btn btn-success" type="submit">Edit</button>
                 <a asp-controller="Service" asp-action="Index" class="btn btn-warning">Back</a>
             </div>
         </form>

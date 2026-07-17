@@ -1,4 +1,5 @@
 ﻿using Azure;
+using Azure.Core;
 using Microsoft.AspNetCore.Mvc;
 using MoneyFlow.Context;
 using MoneyFlow.Managers;
@@ -38,6 +39,26 @@ namespace MoneyFlow.Context
 
             return View();
 
-        } 
+        }
+
+        [HttpGet]
+        public IActionResult EditService(int ID)
+        {
+            var model = _serviceManager.GetById(ID);
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult EditService(ServiceVM modelVM)
+        {
+            if (!ModelState.IsValid) return View(modelVM);
+            var response = _serviceManager.Edit(modelVM);
+            if (response == 1) return RedirectToAction("index");
+
+            ViewBag.message ="Error al Editar";
+
+            return View(modelVM);
+
+        }
     }
 }
