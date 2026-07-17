@@ -60,5 +60,11 @@ namespace MoneyFlow.Context
             return View(modelVM);
 
         }
+
+        public IActionResult DeleteService(int id)
+        {
+            var response = _serviceManager.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }

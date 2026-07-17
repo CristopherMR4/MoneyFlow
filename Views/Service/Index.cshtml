@@ -24,6 +24,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Type</th>
+                    <th style="width:90px"></th>
                 </tr>
             </thead>
             <tbody>
@@ -32,9 +33,10 @@
                     <tr>
                         <td>@item.Name</td>
                         <td>@item.Type</td>
+                        <th style="width:90px"></th>
                         <td>
                             <a href="/Service/EditService/@item.ServiceID" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                            <button onclick="deleteItem(@item.ServiceID)" class="btn btn-danger btn-sm">Delete</button>
                         </td>
                     </tr>
 
@@ -43,3 +45,23 @@
         </table>
     </div>
 </div>
+
+<!--Metodo para borrar Servicios-->
+
+@section Scripts{
+
+    <script>
+    function deleteItem(serviceID) {
+
+        if (confirm("Are you Ok with Deleting this Service?")) {
+
+            window.location.href = '@Url.Action("DeleteService","Service")'+'?id=' + serviceID;
+
+        }
+
+    }
+
+    </script>
+
+
+}
