@@ -10,14 +10,14 @@ namespace MoneyFlow.Managers
     public class ServiceManager(AppDbContext _dbContext)
     {
 
-        public List<ServiceVM>GetAll(int userid)
+        public List<ServiceVM> GetAll(int userid)
         {
             var list = _dbContext.Services.Where(item => item.Userid == userid)
-            .Select(item => new ServiceVM{
-              Userid = item.Userid,
-              ServiceID = item.ServiceID,
-              Type = item.Type,
-              Name = item.Name,
+            .Select(item => new ServiceVM {
+                Userid = item.Userid,
+                ServiceID = item.ServiceID,
+                Type = item.Type,
+                Name = item.Name,
             })
             .ToList();
             return list;
@@ -31,9 +31,9 @@ namespace MoneyFlow.Managers
                 Type = serviceVM.Type,
                 Userid = serviceVM.Userid
             };
-        
+
             _dbContext.Services.Add(entity);
-            var rowsAffected =  _dbContext.SaveChanges();
+            var rowsAffected = _dbContext.SaveChanges();
 
             return rowsAffected;
         }
@@ -53,16 +53,16 @@ namespace MoneyFlow.Managers
         }
 
         public int Edit(ServiceVM model) {
-        
-        var entity = _dbContext.Services.Find(model.ServiceID);
-        
-        entity.Name = model.Name;
-        entity.Type = model.Type;
 
-        _dbContext.Services.Update(entity);
-        var rowsAffected = _dbContext.SaveChanges();
-        return rowsAffected;
-            
+            var entity = _dbContext.Services.Find(model.ServiceID);
+
+            entity.Name = model.Name;
+            entity.Type = model.Type;
+
+            _dbContext.Services.Update(entity);
+            var rowsAffected = _dbContext.SaveChanges();
+            return rowsAffected;
+
         }
 
         public int Delete(int id) {
@@ -73,6 +73,23 @@ namespace MoneyFlow.Managers
             var rowsAffected = _dbContext.SaveChanges();
 
             return rowsAffected;
+
+        }
+
+        //Listar por tipos de Servicios.
+        public List<ServiceVM> GetByType(int userid, string type) {
+
+            var list = _dbContext.Services.Where(
+                item => item.Userid == userid &&
+                item.Type == type)
+                .Select(item => new ServiceVM
+                {
+                    ServiceID = item.ServiceID,
+                    Name = item.Name,
+                }).ToList();
+
+            return list;
+       
         
         }
     }
