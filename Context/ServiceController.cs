@@ -33,7 +33,7 @@ namespace MoneyFlow.Context
             
             //WARNING: Cambiar el User IDS
             modelVM.Userid = 1;
-            var response = _serviceManager.NewService(modelVM);
+            var response = _serviceManager.New(modelVM);
             if(response == 1)return RedirectToAction("Index"); 
             ViewBag.message = "Error";
 

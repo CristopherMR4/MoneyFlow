@@ -23,7 +23,7 @@ namespace MoneyFlow.Managers
             return list;
 
         }
-        public int NewService(ServiceVM serviceVM) {
+        public int New(ServiceVM serviceVM) {
 
             var entity = new Services
             {
