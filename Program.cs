@@ -12,8 +12,9 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 opt.UseSqlServer(builder.Configuration.GetConnectionString("cadenaSQL"))
 
 );
-//ServiceController use la dependencia
+//ServiceController uso la dependencia
 builder.Services.AddScoped<ServiceManager>();
+builder.Services.AddScoped<TransactionManager>();
 
 var app = builder.Build();
 
