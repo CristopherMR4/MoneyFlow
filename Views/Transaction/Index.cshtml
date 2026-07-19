@@ -1,0 +1,47 @@
+﻿
+@{
+}
+<div class="row mt-4">
+    <div class="col-sm-6 offset-sm-3">
+        <h2>New Transaction</h2>
+        <form asp-controller="Service" asp-action="NewTransaction" method="post">
+
+            <div class="mb-3">
+                <label class="form-label">Type</label>
+                <select class="form-select" id="cboTypeService">
+                    <option value="0" disabled selected>-- Select --</option>
+                    <option value="income">income</option>
+                    <option value="expense">expense</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Services</label>
+                <select class="form-select" id="cboService">
+                    <option value="0" disabled selected>-- Select --</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Comments</label>
+                <input type="text" class="form-control" id="txtComment" autocomplete="off" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Date</label>
+                <input type="date" class="form-control" id="txtDate" autocomplete="off" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Total Amount</label>
+                <input type="number" class="form-control" id="txtTotalAmount" autocomplete="off" />
+            </div>
+
+
+
+
+            <!--BUTTONS-->
+            <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-success" type="button">Save</button>
+
+            </div>
+        </form>
+    </div>
+</div>
