@@ -1,7 +1,4 @@
-﻿
-@{
-}
-<div class="row mt-4">
+﻿<div class="row mt-4">
     <div class="col-sm-6 offset-sm-3">
         <h2>New Transaction</h2>
         <form asp-controller="Service" asp-action="NewTransaction" method="post">
@@ -17,7 +14,7 @@
             <div class="mb-3">
                 <label class="form-label">Services</label>
                 <select class="form-select" id="cboService">
-                    <option value="0" disabled selected>-- Select --</option>
+                    <option></option>
                 </select>
             </div>
             <div class="mb-3">
@@ -33,10 +30,6 @@
                 <label class="form-label">Total Amount</label>
                 <input type="number" class="form-control" id="txtTotalAmount" autocomplete="off" />
             </div>
-
-
-
-
             <!--BUTTONS-->
             <div class="d-grid gap-2 d-md-block">
                 <button class="btn btn-success" type="button">Save</button>
@@ -45,3 +38,22 @@
         </form>
     </div>
 </div>
+
+
+@section Styles {
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#cboService").select2({
+                placeholder: "-- Select --",
+                width: '100%'
+            });
+        });
+    </script>
+}
+
